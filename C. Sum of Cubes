@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <iomanip>
+#include <vector>
+#define ll long long
+using namespace std;
+void fast() {
+    ios_base::sync_with_stdio(false);
+    cout.tie(NULL);
+    cin.tie(NULL);
+}
+
+
+int main() {
+    fast();
+    //freopen("adam.in", "r", stdin);
+    ll t; cin >> t;
+    while (t--)
+    {
+        ll n, x = 0, y, z, sum = 0; cin >> n;
+        y = cbrt(n);
+        for (ll i = 1; i <= y;) {
+            x = i * i * i;
+            z = y * y * y;
+            sum = x + z;
+            if (sum > n) {
+                y--;
+            }
+            else if (sum < n) {
+                i++;
+            }
+            else break;
+        }
+        if (sum == n) cout << "YES" << '\n';
+        else cout << "NO" << '\n';
+    }
+
+    return 0;
+}
